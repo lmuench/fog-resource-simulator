@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/temp1', async (req, res) => {
   console.log('GET /temp1');
@@ -11,12 +13,17 @@ app.get('/temp1', async (req, res) => {
 
 app.get('/humid1', async (req, res) => {
   console.log('GET /humid1');
-  //res.json({ value: 65.8 });
-  res.json([1.2, 1.4, 1.7]);
+  res.json({ value: 65.3 });
+});
+
+app.get('/light1', async (req, res) => {
+  console.log('GET /light1:');
+  res.json({ value: 1 });
 });
 
 app.put('/light1', async (req, res) => {
-  console.log('PUT /light1:', req);
+  console.log('PUT /light1:', req.body);
+  res.json(req.body);
 });
 
 app.post('/light1/on', async (req, res) => {
