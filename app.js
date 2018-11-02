@@ -16,22 +16,18 @@ app.get('/humid1', async (req, res) => {
   res.json({ value: 65.3 });
 });
 
+const light1 = {};
+light1.value = 0;
+
 app.get('/light1', async (req, res) => {
   console.log('GET /light1:');
-  res.json({ value: 1 });
+  res.json(light1);
 });
 
 app.put('/light1', async (req, res) => {
   console.log('PUT /light1:', req.body);
-  res.json(req.body);
-});
-
-app.post('/light1/on', async (req, res) => {
-  console.log('POST /light1/on:', req);
-});
-
-app.post('/light1/off', async (req, res) => {
-  console.log('POST /light1/off:', req);
+  light1.value = req.body.value;
+  res.json(light1);
 });
 
 app.listen(5000, () => {
