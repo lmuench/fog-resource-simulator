@@ -15,9 +15,10 @@ app.get('/temp', async (req, res) => {
 
 app.get('/humid', async (req, res) => {
   console.log('GET /humid');
+  // delay response by 100 ms
   setTimeout(() => {
     res.json({ value: 65.7 });
-  }, 1000)
+  }, 100)
 });
 
 const light = {};
