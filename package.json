@@ -1,4 +1,9 @@
 {
+  "name": "fog-resource-simulator",
+  "version": "1.0.0",
+  "author": "Ludwig Muench",
+  "license": "MIT",
+  "private": true,
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
